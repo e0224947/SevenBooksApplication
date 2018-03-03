@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ErrorPages.master.cs" Inherits="SevenBooksApplication.ErrorPages" %>
+
+<link rel="stylesheet" type="text/css" href="../StyleSheetSevenBook1.css" />
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            height: 26px;
+        }
+    </style>
+</head>
+<body style="margin-top: 15px">
+    <form id="form1" runat="server">
+        <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <table style="width: 100%; border-style:hidden">
+                <tr>
+                    <td>
+
+                        <asp:Label ID="Label1" runat="server" ForeColor="#00CC66" Text="Oops..~ Something went wrong"></asp:Label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="Label2" runat="server" Text="We will fix the error shortly, please check back the page shortly. "></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">
+                        <br />
+                        <asp:Button Class="btnHead" ID="btnBackToHome" runat="server" Text="Back to Home" BorderStyle="None" OnClick="btnBackToHome_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </form>
+</body>
+</html>

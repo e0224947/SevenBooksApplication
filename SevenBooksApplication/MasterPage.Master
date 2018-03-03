@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="SevenBooksApplication.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><%: Page.Title %> - SevenBooks</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+
+        li {
+            display: inline;
+        }
+
+        .auto-style2 {
+            margin-left: 0px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="StyleSheetSevenBook1.css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <table class="auto-style1" border="0" style="border-style:hidden">
+                        <tr>
+                            <td class="bgColour" colspan="2">
+                                <asp:Panel class="bgColourInLineBlockLeft" ID="Panel4" runat="server" Style="text-align: right">
+                                    <asp:Button class="btnHead" ID="btnHome" runat="server" Text="Home" BorderStyle="None" OnClick="btnHome_Click" />
+                                    <span style="color:#FFCE67"> | </span>
+                                    <asp:HiddenField ID="hdfUserID" runat="server" />
+                                </asp:Panel>
+
+
+                                <asp:Panel class="bgColourInLineBlock" ID="Panel1" runat="server" Style="text-align: right">
+                                                                         <asp:Button class="btnHead" ID="btnManageBook" runat="server" Text="Manage Book" BorderStyle="None" OnClick="btnManageBook_Click" />
+                                    <span style="color:#FFCE67"> | </span>
+                                <asp:Button class="btnHead" ID="btnManageOrder" runat="server" Text="Manage Order" BorderStyle="None" OnClick="btnManageOrder_Click" />
+                                    <span style="color:#FFCE67"> | </span>
+                                    <asp:Button class="btnHead" ID="btnManageDiscount" runat="server" Text="Manage Discount" BorderStyle="None" OnClick="btnManageDiscount_Click" />
+                                    <span style="color:#FFCE67"> | </span>
+                                    <asp:Button class="btnHead" ID="btnWelcome" runat="server" Text="Welcome, Guest" BorderStyle="None" OnClick="btnWelcome_Click" />
+                                    <span style="color:#FFCE67"> | </span>
+                                    <asp:Button class="btnHead" ID="btnCart" runat="server" Text="View Cart" BorderStyle="None" OnClick="btnCart_Click" />
+                                    <span style="color:#FFCE67"> | </span>
+                                    <asp:LoginStatus class="btnHead" ID="LoginStatus" runat="server" LoginText="Login / Register" OnLoggingOut="LoginStatus_LoggingOut" />
+                                </asp:Panel>
+
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                               
+                                <br />
+                                <asp:Panel ID="Panel2" runat="server" Style="text-align: center" DefaultButton="btnSearch">
+                                    <asp:DropDownList ID="ddlSearch" runat="server" Width="120px" CssClass="search-select">
+                                        <asp:ListItem>Title</asp:ListItem>
+                                        <asp:ListItem>ISBN</asp:ListItem>
+                                        <asp:ListItem>Category</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:TextBox ID="tbSearch" runat="server" CssClass="search-box"  Width="434px"></asp:TextBox>
+                                    <asp:Button CssClass="btnSc" ID="btnSearch" runat="server" Text="Search" BorderStyle="None" OnClick="btnSearch_Click" />
+                                </asp:Panel>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="bgColour">
+                                <asp:Panel ID="Panel3" runat="server" Style="text-align: center; width: 100%">
+
+                                    <asp:Button class="btnHead" ID="btnChildren" runat="server" Text="Children" BorderStyle="None" OnClick="btnChildren_Click" /><span style="color:#FFCE67"> | </span>
+                                    <asp:Button class="btnHead" ID="btnFinance" runat="server" Text="Finance" BorderStyle="None" OnClick="btnFinance_Click" /> <span style="color:#FFCE67"> | </span>
+                                    <asp:Button class="btnHead" ID="btnNonFiction" runat="server" Text="Non-Fiction" BorderStyle="None" OnClick="btnNonFiction_Click" /> <span style="color:#FFCE67"> | </span>
+                                    <asp:Button class="btnHead" ID="btnTechnical" runat="server" Text="Technical" BorderStyle="None" OnClick="btnTechnical_Click" />
+                                </asp:Panel>
+                            </td>
+                        </tr>
+                        <tr style="border: none">
+
+                            <td colspan="2" style="border: none">
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                <asp:Timer ID="Timer1" runat="server" Interval="5000"></asp:Timer>
+                                <asp:Panel ID="Panel5" runat="server">
+                                    <div style="text-align:center">
+                                    <h1><asp:Label ID="Label1" runat="server" Text=""></asp:Label></h1>
+                                        </div>
+                                </asp:Panel>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                <br />
+                                
+                                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                </asp:ContentPlaceHolder>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                &copy; <%: DateTime.Now.Year %>- SevenBooks<asp:Image ID="Image1" runat="server" Height="74px" ImageUrl="~/Image/StoreLogo.jpg" Width="163px" />
+            </p>
+        </footer>
+    </form>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        &nbsp;
+    </p>
+</body>
+</html>
